@@ -21,7 +21,7 @@ current_savings = 0.0
 epsilon = 100
 
 # use exhaustive enumeration to find the solution
-while current_savings < down_payment:
+while abs(current_savings - down_payment) > epsilon:
     # problem states investment income and savings deposits occur at the end
     # of the month, so increment month before mutating current_savings
     months += 1
