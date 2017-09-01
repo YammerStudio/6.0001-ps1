@@ -33,4 +33,4 @@ while current_savings < down_payment:
         monthly_salary = annual_salary / 12
         monthly_deposit = monthly_salary * portion_saved
     
-print(months)
+print('Number of months:', months)
