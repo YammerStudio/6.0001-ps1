@@ -17,6 +17,9 @@ months = 36
 # function used to stop the algorithm
 current_savings = 0.0
 
+# there is an acceptable margin of error for this algorithm
+epsilon = 100
+
 # use exhaustive enumeration to find the solution
 while current_savings < down_payment:
     # problem states investment income and savings deposits occur at the end
