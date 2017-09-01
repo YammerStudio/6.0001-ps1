@@ -11,13 +11,11 @@ total_cost = 1000000
 down_payment = total_cost * portion_down_payment
 monthly_deposit = monthly_salary * portion_saved
 semi_annual_raise = 0.07
+months = 36
 
 # initially savings are zero. This variable is the core part of the decrementing
 # function used to stop the algorithm
 current_savings = 0.0
-
-# this variable will hold the solution we seek after completion of the algorithm
-months = 0
 
 # use exhaustive enumeration to find the solution
 while current_savings < down_payment:
