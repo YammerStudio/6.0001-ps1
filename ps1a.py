@@ -26,4 +26,4 @@ while current_savings < down_payment:
     current_savings *= 1 + monthly_rate_of_return
     current_savings += monthly_deposit
     
-print(months)
+print('Number of months:', months)
