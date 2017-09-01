@@ -2,6 +2,7 @@
 annual_salary = float(input('Enter your annual salary: '))
 portion_saved = float(input('Enter the percent of your salary to save, as a decimal: '))
 total_cost = float(input('Enter the cost of your dream home: '))
+semi_annual_raise = float(input('Enter the semi-annual raise, as a decimal: '))
 
 # data that is fixed
 portion_down_payment = 0.25
@@ -25,5 +26,11 @@ while current_savings < down_payment:
     months += 1
     current_savings *= 1 + monthly_rate_of_return
     current_savings += monthly_deposit
+    # problem states that semi-annual raises take effect the next month, so 
+    # mutate monthly_salary after mutating current_savings
+    if months % 6 == 0:
+        annual_salary *= 1 + semi_annual_raise
+        monthly_salary = annual_salary / 12
+        monthly_deposit = monthly_salary * portion_saved
     
 print(months)
