@@ -24,10 +24,9 @@ low = 0
 portion_saved = (high + low) // 2
 steps = 0
 
-
 # use bisection search to find the solution
-search_space_empty = False
 while abs(current_savings - down_payment) > epsilon:
+    steps += 1
     current_savings = 0.0
     annual_salary = base_annual_salary
     monthly_salary = annual_salary / 12
@@ -46,13 +45,18 @@ while abs(current_savings - down_payment) > epsilon:
         high = portion_saved
     else:
         low = portion_saved
+    # if the solution is outside of the search space on the high bound, low
+    # will eventually equal the inital high value. However, if we use integer
+    # division, low will be one less than high. As such, we round the average
+    # of high and low and cast to an int so that low and high will converge
+    # completely if the solution is outside of the search space on the high
+    # bound
     portion_saved = int(round((high + low) / 2))
     # if portion_saved is no longer changing, our search space is no longer
     # changing (because the search value is outside the search space), so we
     # break to stop an infinite loop
     if prev_portion_saved == portion_saved:
         break
-    steps += 1
     
 if prev_portion_saved == portion_saved and portion_saved == initial_high:
     print('It is not possible to pay the down payment in three years.')
